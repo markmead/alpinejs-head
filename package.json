@@ -1,0 +1,21 @@
+{
+  "name": "alpinejs-head",
+  "version": "1.0.6",
+  "description": "Manage the HTML `<head>` 🗿",
+  "keywords": [
+    "Alpine",
+    "Alpine JS",
+    "Alpine JS Head",
+    "Alpine JS Helmet"
+  ],
+  "author": "Mark Mead",
+  "license": "MIT",
+  "module": "dist/head.esm.js",
+  "unpkg": "dist/head.min.js",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.16.2"
+  }
+}
