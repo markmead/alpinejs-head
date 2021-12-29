@@ -1,12 +1,15 @@
 {
   "name": "alpinejs-head",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage the head of your HTML page with Alpine JS",
   "keywords": [
     "Alpine",
     "Alpine JS",
     "Alpine JS Plugins",
-    "Alpine JS Head"
+    "Alpine JS Head",
+    "Alpine JS Helmet",
+    "Head",
+    "HTML Head"
   ],
   "author": "Mark Mead",
   "license": "MIT",

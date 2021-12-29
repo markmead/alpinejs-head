@@ -1,5 +1,3 @@
-import { kebabCase } from "lodash";
-
 export default function (Alpine) {
   Alpine.directive(
     "head",
