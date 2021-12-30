@@ -66,7 +66,7 @@ It's very easy to install Alpine JS plugins! 🙌
 ### CDN
 
 ```html
-<script src="https://unpkg.com/alpinejs-head@1.0.0/dist/head.min.js"></script>
+<script src="https://unpkg.com/alpinejs-head@1.x.x/dist/head.min.js"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
