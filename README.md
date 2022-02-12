@@ -1,4 +1,4 @@
-# Apline JS head
+# Apline JS Head
 
 Alpine JS plugin `x-head` allows you to update the document `head` dynamically 🥳
 
