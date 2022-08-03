@@ -1,7 +1,7 @@
 {
   "name": "alpinejs-head",
   "version": "1.0.3",
-  "description": "Manage the HTML head with Alpine JS 🗿",
+  "description": "Manage the HTML head with JSON and Alpine JS directives 🗿",
   "keywords": [
     "Alpine",
     "Alpine JS",

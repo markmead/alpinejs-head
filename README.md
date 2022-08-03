@@ -1,6 +1,6 @@
 # Alpine JS Head
 
-Manage the HTML head with Alpine JS 🗿
+Manage the HTML head with JSON and Alpine JS directives 🗿
 
 ## Install
 
