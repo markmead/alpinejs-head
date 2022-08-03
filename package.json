@@ -1,10 +1,11 @@
 {
   "name": "alpinejs-head",
-  "version": "1.0.2",
-  "description": "Manage the head of your HTML page with Alpine JS",
+  "version": "1.0.3",
+  "description": "Manage the HTML head with Alpine JS 🗿",
   "keywords": [
     "Alpine",
     "Alpine JS",
+    "Alpine JS Plugin",
     "Alpine JS Plugins",
     "Alpine JS Head",
     "Alpine JS Helmet",
@@ -13,13 +14,12 @@
   ],
   "author": "Mark Mead",
   "license": "MIT",
-  "main": "dist/head.cjs.js",
   "module": "dist/head.esm.js",
   "unpkg": "dist/head.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.12.22"
+    "esbuild": "^0.14.53"
   }
 }
