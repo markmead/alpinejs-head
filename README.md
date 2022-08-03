@@ -1,10 +1,44 @@
-# Apline JS Head
+# Alpine JS Head
 
-Alpine JS plugin `x-head` allows you to update the document `head` dynamically 🥳
+Manage the HTML head with JSON and Alpine JS directives 🗿
 
-## Example 👀
+## Install
 
-### JSON
+### With a CDN
+
+```html
+<script
+  defer
+  src="https://unpkg.com/alpinejs-head@latest/dist/head.min.js"
+></script>
+
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+```
+
+### With a Package Manager
+
+```shell
+npm i -D alpinejs-head
+
+yarn add -D alpinejs-head
+```
+
+```js
+import Alpine from 'alpinejs'
+import head from 'alpinejs-head'
+
+Alpine.plugin(head)
+
+Alpine.start()
+```
+
+## Example
+
+### With JSON
+
+You'd use the JSON approach when you want to load/update items in the HTML `<head>` when Alpine JS inits.
+
+It's not needed if you have everything in your HTML `<head>` on load that you need.
 
 ```html
 <script x-data x-head.json type="application/json">
@@ -36,64 +70,31 @@ Alpine JS plugin `x-head` allows you to update the document `head` dynamically �
 </script>
 ```
 
-With the use of `x-head.json` we can pass the initial `head` setup via Alpine JS.
-
-This is not needed if you have everything in your `head` already.
-
-### Dynamically
+### With Alpine JS
 
 ```html
 <div
-  x-data="{ name: 'Mark', bio: 'Hello! I am Mark and I write code.' }"
+  x-data="{ name: 'Mark', bio: 'I am Mark and I write code.' }"
   x-head.title="name"
   x-head.meta.description="bio"
 >
   <input type="text" x-model="name" />
+
   <textarea x-model="bio"></textarea>
 </div>
 ```
 
-This will listen for changes to `name` and `bio` and update the values within the `head` element.
+The `x-head` directives will track the data of `name` and `bio` and update the HTML `<head>` elements targeted through the modifiers.
 
-If you were to update `theme-color` for example, you'd pass it like so `x-head.meta.theme-color`.
-
-_There is no way of updating `link` and `script` elements._
-
-## Install 🌟
-
-It's very easy to install Alpine JS plugins! 🙌
-
-### CDN
+For example, if you wanted to update the `<meta name="theme-color" />`, then you'd write the `x-head` directive like so.
 
 ```html
-<script src="https://unpkg.com/alpinejs-head@1.x.x/dist/head.min.js"></script>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<div x-data="{ color: '#000' }" x-head.meta.theme-color="color"> ... </div>
 ```
 
-### NPM/Yarn
+With the Alpine JS approach there is no way of updating `<link>` and `<script>` elements.
 
-```shell
-npm i -D alpinejs-head
-
-yarn add -D alpinejs-head
-```
-
-Then you can register the plugin.
-
-```js
-import Alpine from "alpinejs";
-import head from "alpinejs-head";
-
-Alpine.plugin(head);
-
-window.Alpine = Alpine;
-
-Alpine.start();
-```
-
-### Stats 📊
-
-Here's some stats about the Alpine JS head package! As you can see, it's tiny 🤏
+### Stats
 
 ![](https://img.shields.io/bundlephobia/min/alpinejs-head)
 ![](https://img.shields.io/npm/v/alpinejs-head)

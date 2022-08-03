@@ -1,5 +1,5 @@
-import head from "../src/index.js";
+import head from '../src/index.js'
 
-document.addEventListener("alpine:init", () => {
-  window.Alpine.plugin(head);
-});
+document.addEventListener('alpine:init', () => {
+  window.Alpine.plugin(head)
+})
