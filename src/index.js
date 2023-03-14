@@ -74,4 +74,17 @@ export default function (Alpine) {
       }
     }
   )
+
+  Alpine.magic('head', () => (metaKey, metaValue) => {
+    if (metaKey === 'title') {
+      document.title = metaValue
+    }
+
+    if (metaKey.includes('meta')) {
+      const metaName = metaKey.split('.')[1]
+      const metaTag = document.querySelector(`meta[name="${metaName}"]`)
+
+      metaTag.content = metaValue
+    }
+  })
 }
