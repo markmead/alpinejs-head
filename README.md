@@ -1,5 +1,7 @@
 # Alpine JS Head
 
+Manage the HTML `<head>` with Alpine JS 🗿
+
 ## Install
 
 ### With a CDN
