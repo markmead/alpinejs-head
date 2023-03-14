@@ -48,6 +48,8 @@ export default function (Alpine) {
         getValue((metaValue) => {
           if (modifiers.includes('title')) {
             document.title = metaValue
+
+            return
           }
 
           if (modifiers.includes('meta')) {
@@ -78,6 +80,8 @@ export default function (Alpine) {
   Alpine.magic('head', () => (metaKey, metaValue) => {
     if (metaKey === 'title') {
       document.title = metaValue
+
+      return
     }
 
     if (metaKey.includes('meta')) {
