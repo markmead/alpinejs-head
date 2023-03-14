@@ -1,5 +1,3 @@
-> Moved to [Alpine JS Helmet](https://github.com/markmead/alpinejs-helmet)
-
 # Alpine JS Head
 
 ## Install
@@ -79,3 +77,10 @@ Alpine.start()
   <textarea x-model="description"></textarea>
 </div>
 ```
+
+### Stats
+
+![](https://img.shields.io/bundlephobia/min/alpinejs-head)
+![](https://img.shields.io/npm/v/alpinejs-head)
+![](https://img.shields.io/npm/dt/alpinejs-head)
+![](https://img.shields.io/github/license/markmead/alpinejs-head)
