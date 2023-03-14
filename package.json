@@ -1,7 +1,7 @@
 {
   "name": "alpinejs-head",
-  "version": "1.1.1",
-  "description": "Manage the HTML `<head>` 🗿",
+  "version": "1.1.2",
+  "description": "Manage the HTML `<head>` with Alpine JS 🗿",
   "keywords": [
     "Alpine",
     "Alpine JS",
@@ -16,6 +16,6 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.16.2"
+    "esbuild": "^0.17.11"
   }
 }

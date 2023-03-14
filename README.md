@@ -1,5 +1,7 @@
 # Alpine JS Head
 
+Manage the HTML `<head>` with Alpine JS 👷‍♀️
+
 ## Install
 
 ### With a CDN
@@ -34,6 +36,8 @@ Alpine.start()
 
 ### JSON
 
+You can use `x-head.json` to set the initial dynamic values.
+
 ```html
 <script x-data x-head.json type="application/json">
   {
@@ -64,6 +68,8 @@ Alpine.start()
 </script>
 ```
 
+_Only with `x-head.json` can you set `<link>` and `<script>` elements._
+
 ### Directives
 
 ```html
@@ -76,6 +82,25 @@ Alpine.start()
 
   <textarea x-model="description"></textarea>
 </div>
+```
+
+`x-head` will track track the data of `title` and `description` and update the
+HTML `<head>` elements targeted through the modifiers.
+
+Here's an example of you can set the `theme-color`:
+
+```html
+<div x-data="{ theme: '#000' }" x-head.meta.theme-color="theme"> </div>
+```
+
+### Method
+
+```html
+<button x-data @click="$head('title', 'Hello World 👋')"> Title </button>
+
+<button x-data @click="$head('meta.description', 'How are you today?')">
+  Description
+</button>
 ```
 
 ### Stats
