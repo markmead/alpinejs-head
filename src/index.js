@@ -2,41 +2,32 @@ export default function (Alpine) {
   Alpine.directive(
     'head',
     (el, { expression, modifiers }, { evaluateLater, effect }) => {
-      const htmlHead = document.head
+      const headEl = document.head
 
-      const usingJSON = modifiers.includes('json')
+      const isUsingJson = modifiers.includes('json')
 
-      if (usingJSON) {
-        const jsonHead = JSON.parse(el.textContent)
+      if (isUsingJson) {
+        const headJson = JSON.parse(el.textContent)
 
-        if (jsonHead.title) {
-          document.title = jsonHead.title
+        const hasTitle = !!headJson.title
+        const hasMeta = !!headJson.meta
+
+        if (hasTitle) {
+          document.title = headJson.title
         }
 
-        if (jsonHead.meta) {
-          jsonHead.meta.forEach((jsonMeta) => {
+        if (hasMeta) {
+          headJson.meta.forEach((jsonMeta) => {
             const metaTag =
-              htmlHead.querySelector(`meta[name="${jsonMeta.name}"]`) ||
+              headEl.querySelector(`meta[name="${jsonMeta.name}"]`) ||
               document.createElement('meta')
 
             assignAttributes(metaTag, jsonMeta)
 
-            if (!htmlHead.querySelector(`meta[name="${jsonMeta.name}"]`)) {
-              htmlHead.appendChild(metaTag)
+            if (!headEl.querySelector(`meta[name="${jsonMeta.name}"]`)) {
+              headEl.appendChild(metaTag)
             }
           })
-        }
-
-        if (jsonHead.links) {
-          jsonHead.links.forEach((jsonLink) =>
-            createAndAppendElement('link', jsonLink)
-          )
-        }
-
-        if (jsonHead.scripts) {
-          jsonHead.scripts.forEach((jsonScript) =>
-            createAndAppendElement('script', jsonScript)
-          )
         }
 
         return
@@ -46,49 +37,59 @@ export default function (Alpine) {
 
       effect(() => {
         getValue((metaValue) => {
-          if (modifiers.includes('title')) {
+          const isTitle = modifiers.includes('title')
+          const isMeta = modifiers.includes('meta')
+
+          if (!isTitle && !isMeta) {
+            return
+          }
+
+          if (isTitle) {
             document.title = metaValue
 
             return
           }
 
-          if (modifiers.includes('meta')) {
-            const metaName = modifiers[1]
-            const metaTag = document.querySelector(`meta[name="${metaName}"]`)
+          const [_, metaName] = modifiers
+          const metaEl = document.querySelector(`meta[name="${metaName}"]`)
 
-            metaTag.content = metaValue
+          if (!metaEl) {
+            return
           }
+
+          metaEl.content = metaValue
         })
       })
 
       function assignAttributes(htmlElement, metaAttributes) {
-        Object.keys(metaAttributes).forEach((metaKey) =>
-          htmlElement.setAttribute(metaKey, metaAttributes[metaKey])
-        )
-      }
-
-      function createAndAppendElement(metaType, metaAttributes) {
-        const metaTag = document.createElement(metaType)
-
-        assignAttributes(metaTag, metaAttributes)
-
-        htmlHead.appendChild(metaTag)
+        for (const [metaKey, metaValue] of Object.entries(metaAttributes)) {
+          htmlElement.setAttribute(metaKey, metaValue)
+        }
       }
     }
   )
 
   Alpine.magic('head', () => (metaKey, metaValue) => {
-    if (metaKey === 'title') {
+    const isTitle = metaKey === 'title'
+    const isMeta = metaKey.includes('meta')
+
+    if (!isTitle && !isMeta) {
+      return
+    }
+
+    if (isTitle) {
       document.title = metaValue
 
       return
     }
 
-    if (metaKey.includes('meta')) {
-      const metaName = metaKey.split('.')[1]
-      const metaTag = document.querySelector(`meta[name="${metaName}"]`)
+    const [_, metaName] = metaKey.split('.')
+    const metaEl = document.querySelector(`meta[name="${metaName}"]`)
 
-      metaTag.content = metaValue
+    if (!metaEl) {
+      return
     }
+
+    metaEl.content = metaValue
   })
 }
