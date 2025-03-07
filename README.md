@@ -125,10 +125,13 @@ update related metadata together.
 ### Method
 
 ```html
-<button x-data @click="$head('title', 'Alpine JS Head Demo')"> Title </button>
+<button x-data type="button" @click="$head('title', 'Alpine JS Head Demo')">
+  Title
+</button>
 
 <button
   x-data
+  type="button"
   @click="$head('meta.description', 'Dynamically control your page metadata with Alpine JS Head')"
 >
   Description
