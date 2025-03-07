@@ -14,10 +14,9 @@ elements using Alpine JS.
 
 This plugin lets you dynamically update:
 
-- Page titles
-- Meta descriptions
-- Theme colors
-- Other head elements
+- 📄 Page title
+- 📝 Meta descriptions
+- 🔍 SEO elements
 
 ## Why Use It?
 
@@ -25,9 +24,6 @@ This plugin lets you dynamically update:
 - **Reactive**: Head elements update automatically when your data changes
 - **Flexible**: Use JSON, directives, or methods - whatever fits your style
 - **SEO-friendly**: Update meta tags on the fly for better search results
-
-Perfect for single-page apps or any site where you need different page metadata
-based on user actions or content changes.
 
 ## Install
 
