@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-head",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A lightweight Alpine JS plugin for dynamically managing HTML <head> elements. Easily update meta tags, titles, and other head content on the fly 🦆",
   "keywords": [
     "alpine",

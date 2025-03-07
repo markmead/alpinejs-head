@@ -58,8 +58,6 @@ Alpine.start()
 
 ### JSON
 
-### JSON
-
 You can use `x-head.json` to set the initial dynamic values and update them
 later through Alpine JS data binding.
 
